@@ -1,13 +1,14 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse Quick Look
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipselabs.qlipse;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipselabs.qlipse.EclipseQuickLook
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.eclipse.core.resources;bundle-version="3.6.1"
+Require-Bundle: org.eclipse.ui;bundle-version="3.5.0",
+ org.eclipse.core.runtime;bundle-version="3.5.0",
+ org.eclipse.core.resources;bundle-version="3.5.0"
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: %providerName
 
