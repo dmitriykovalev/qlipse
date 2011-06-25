@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipselabs.qlipse.feature_0.1.0.qualifier.jar" id="org.eclipselabs.qlipse.feature" version="0.1.0.qualifier" os="macosx">
+      <category name="org.eclipselabs.qlipse.category"/>
+   </feature>
+   <category-def name="org.eclipselabs.qlipse.category" label="QLipse"/>
+</site>
