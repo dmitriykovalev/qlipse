@@ -10,14 +10,14 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipselabs.qlipse.internal.QuickLookExecutionJob;
 import org.osgi.framework.BundleContext;
 
-public class EclipseQuickLook extends AbstractUIPlugin {
+public class QLipsePlugin extends AbstractUIPlugin {
     public static final String PLUGIN_ID = "org.eclipselabs.qlipse"; //$NON-NLS-1$
 
     public static final String CONTEXT_ID = "org.eclipselabs.qlipse.context"; //$NON-NLS-1$
 
-    private static EclipseQuickLook plugin;
+    private static QLipsePlugin plugin;
 
-    public EclipseQuickLook() {
+    public QLipsePlugin() {
     }
 
     private final Map<IWorkbenchWindow, QuickLookExecutionJob> map = new HashMap<IWorkbenchWindow, QuickLookExecutionJob>();
@@ -58,7 +58,7 @@ public class EclipseQuickLook extends AbstractUIPlugin {
         super.stop(context);
     }
 
-    public static EclipseQuickLook getDefault() {
+    public static QLipsePlugin getDefault() {
         return plugin;
     }
 }

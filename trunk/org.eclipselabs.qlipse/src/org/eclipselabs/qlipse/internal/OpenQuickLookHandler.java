@@ -13,7 +13,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
-import org.eclipselabs.qlipse.EclipseQuickLook;
+import org.eclipselabs.qlipse.QLipsePlugin;
 
 public class OpenQuickLookHandler extends AbstractHandler {
     private String getResourcePath(IResource resource) {
@@ -58,7 +58,7 @@ public class OpenQuickLookHandler extends AbstractHandler {
                     paths.add(path);
                 }
             }
-            EclipseQuickLook.getDefault().openQuickLook(HandlerUtil.getActiveWorkbenchWindowChecked(event), paths);
+            QLipsePlugin.getDefault().openQuickLook(HandlerUtil.getActiveWorkbenchWindowChecked(event), paths);
         }
         return null;
     }

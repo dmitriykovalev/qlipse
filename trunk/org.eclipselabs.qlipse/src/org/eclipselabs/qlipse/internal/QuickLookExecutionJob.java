@@ -11,7 +11,7 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.contexts.IContextActivation;
 import org.eclipse.ui.contexts.IContextService;
-import org.eclipselabs.qlipse.EclipseQuickLook;
+import org.eclipselabs.qlipse.QLipsePlugin;
 
 public class QuickLookExecutionJob extends Job {
     private final List<String> paths;
@@ -37,7 +37,7 @@ public class QuickLookExecutionJob extends Job {
         try {
             process = (new ProcessBuilder(arguments)).start();
         } catch (IOException e) {
-            return new Status(IStatus.ERROR, EclipseQuickLook.PLUGIN_ID, e.getMessage(), e);
+            return new Status(IStatus.ERROR, QLipsePlugin.PLUGIN_ID, e.getMessage(), e);
         }
 
         // Activate context
@@ -48,7 +48,7 @@ public class QuickLookExecutionJob extends Job {
         display.asyncExec(new Runnable() {
             @Override
             public void run() {
-                activation[0] = contextService.activateContext(EclipseQuickLook.CONTEXT_ID);
+                activation[0] = contextService.activateContext(QLipsePlugin.CONTEXT_ID);
             }
         });
 
