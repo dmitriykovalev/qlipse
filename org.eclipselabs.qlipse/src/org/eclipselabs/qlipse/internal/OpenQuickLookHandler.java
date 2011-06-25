@@ -7,7 +7,6 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.mapping.ResourceMapping;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.ISelection;
@@ -32,11 +31,6 @@ public class OpenQuickLookHandler extends AbstractHandler {
             if (resource != null) {
                 return getResourcePath((IResource) resource);
             }
-
-            final ResourceMapping mapping = (ResourceMapping) adaptable.getAdapter(ResourceMapping.class);
-            if (mapping != null) {
-                System.out.println(mapping);
-            }
         }
 
         final IResource resource = (IResource) Platform.getAdapterManager().getAdapter(obj, IResource.class);
@@ -49,7 +43,7 @@ public class OpenQuickLookHandler extends AbstractHandler {
 
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
-        final ISelection selection = HandlerUtil.getCurrentSelection(event);
+        final ISelection selection = HandlerUtil.getCurrentSelectionChecked(event);
         if (selection instanceof IStructuredSelection) {
             final List<String> paths = new ArrayList<String>();
             for (Object obj : ((IStructuredSelection) selection).toList()) {
