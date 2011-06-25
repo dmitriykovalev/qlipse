@@ -58,7 +58,7 @@ public class OpenQuickLookHandler extends AbstractHandler {
                     paths.add(path);
                 }
             }
-            EclipseQuickLook.getDefault().openQuickLook(HandlerUtil.getActiveWorkbenchWindow(event), paths);
+            EclipseQuickLook.getDefault().openQuickLook(HandlerUtil.getActiveWorkbenchWindowChecked(event), paths);
         }
         return null;
     }

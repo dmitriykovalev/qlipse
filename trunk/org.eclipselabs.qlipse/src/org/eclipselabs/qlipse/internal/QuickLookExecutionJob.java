@@ -20,6 +20,7 @@ public class QuickLookExecutionJob extends Job {
 
     public QuickLookExecutionJob(List<String> paths, IContextService contextService) {
         super("QuickLookExecutionJob");
+
         this.paths = paths;
         this.contextService = contextService;
     }
@@ -36,7 +37,7 @@ public class QuickLookExecutionJob extends Job {
         try {
             process = (new ProcessBuilder(arguments)).start();
         } catch (IOException e) {
-            return Status.OK_STATUS;
+            return new Status(IStatus.ERROR, EclipseQuickLook.PLUGIN_ID, e.getMessage(), e);
         }
 
         // Activate context
@@ -72,6 +73,8 @@ public class QuickLookExecutionJob extends Job {
     }
 
     public void destroy() {
-        process.destroy();
+        if (process != null) {
+            process.destroy();
+        }
     }
 }
